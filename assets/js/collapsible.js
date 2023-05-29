@@ -1,4 +1,4 @@
-var coll = document.getElementsByClassName("button small");
+var coll = document.getElementsByClassName("collapsible_abstract");
 var i;
 			
 for (i = 0; i < coll.length; i++) {
