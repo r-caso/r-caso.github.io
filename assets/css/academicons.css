@@ -3,12 +3,15 @@
  *  Fonts generated using FontForge - https://fontforge.org
  *  Square icons designed to be used alongside Font Awesome square icons - https://fortawesome.github.io/Font-Awesome/
  *  Licenses - Font: SIL OFL 1.1, CSS: MIT License
+ *
+ *  Minor changes to @font-face by Ramiro Caso to integrate with existing directory structure, see in source.
  */
 @font-face {
     font-family: 'Academicons';
     font-style: normal;
     font-weight: 400;
     font-display: block;
+    /* changed fonts to webfonts below, by Ramiro Caso*/
     src:url('../webfonts/academicons.eot');
     src:url('../webfonts/academicons.eot') format('embedded-opentype'),
         url('../webfonts/academicons.ttf') format('truetype'),

@@ -1,3 +1,8 @@
+/*
+ * collapsible button script form https://www.w3schools.com/howto/howto_js_collapsible.asp
+ * added by Ramiro Caso
+ */
+
 var coll = document.getElementsByClassName("collapsible_abstract");
 var i;
 			
