@@ -1,0 +1,68 @@
+:root{
+  --bg:#f4f6f7; --surface:#ffffff; --ink:#1c2428; --muted:#667279; --line:#d9dfe2;
+  --accent:#0f766e; --accent-ink:#ffffff; --code:#eaf0f1;
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --serif:Georgia,"Iowan Old Style",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#14191b;--surface:#1b2124;--ink:#e3e8ea;--muted:#8a979d;--line:#2d373b;--accent:#3cb4a8;--accent-ink:#0b1715;--code:#262f33}
+}
+:root[data-theme="dark"]{--bg:#14191b;--surface:#1b2124;--ink:#e3e8ea;--muted:#8a979d;--line:#2d373b;--accent:#3cb4a8;--accent-ink:#0b1715;--code:#262f33}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.4 var(--ui);display:flex;flex-direction:column;height:100dvh;-webkit-text-size-adjust:100%}
+button,select,input{font:inherit;color:inherit}
+button{background:transparent;border:1px solid transparent;border-radius:6px;padding:5px 9px;cursor:pointer;touch-action:manipulation}
+button:hover{background:var(--code)}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button[aria-pressed="true"]{background:var(--code);border-color:var(--line)}
+button.primary{background:var(--accent);color:var(--accent-ink)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left));background:var(--surface);border-bottom:1px solid var(--line)}
+.bar:first-child{padding-top:max(8px,env(safe-area-inset-top))}
+.bar .sep{width:1px;height:20px;background:var(--line);margin:0 4px}
+#name{border:1px solid transparent;background:transparent;border-radius:6px;padding:5px 8px;min-width:0;width:180px;font-weight:600}
+#name:hover{border-color:var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.spacer{flex:1}
+#tools{display:flex;gap:2px;flex-wrap:wrap}
+#tools button{min-width:32px}
+main{flex:1;min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr)}
+main.split{grid-template-columns:1fr 1fr}
+#ed{width:100%;height:100%;border:0;resize:none;background:var(--surface);color:var(--ink);padding:20px max(24px,env(safe-area-inset-right)) 20px max(24px,env(safe-area-inset-left));font:15px/1.65 var(--mono);tab-size:2;white-space:pre-wrap;overflow:auto}
+#ed.nowrap{white-space:pre;overflow-wrap:normal}
+#ed.prose{font-family:var(--serif);font-size:17px}
+#pv{overflow:auto;padding:20px 28px;background:var(--bg);border-left:1px solid var(--line);font:17px/1.7 var(--serif)}
+#pv>*{max-width:68ch}
+#pv h1,#pv h2,#pv h3,#pv h4,#pv h5,#pv h6{font-family:var(--ui);line-height:1.25;margin:1.4em 0 .5em}
+#pv h1{font-size:1.8em}#pv h2{font-size:1.45em}#pv h3{font-size:1.2em}
+#pv>:first-child{margin-top:0}
+#pv p,#pv ul,#pv ol,#pv blockquote,#pv pre{margin:0 0 1em}
+#pv code{font:.85em var(--mono);background:var(--code);padding:.1em .35em;border-radius:4px}
+#pv pre{background:var(--code);padding:12px 14px;border-radius:8px;overflow:auto}
+#pv pre code{background:none;padding:0}
+#pv blockquote{border-left:3px solid var(--accent);padding-left:14px;color:var(--muted)}
+#pv hr{border:0;border-top:1px solid var(--line);margin:1.5em 0}
+#pv a{color:var(--accent)}
+.status{display:flex;gap:16px;padding:5px 14px;font-size:12px;color:var(--muted);background:var(--surface);border-top:1px solid var(--line);padding-bottom:max(5px,env(safe-area-inset-bottom))}
+.hidden{display:none!important}
+
+/* Phones and small tablets */
+@media (max-width:700px){
+  /* one row per toolbar, scrolls sideways instead of wrapping */
+  .bar,#tools{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bar::-webkit-scrollbar{display:none}
+  .bar>*{flex:none}
+  #name{order:-2;width:130px}
+  #save{order:-1}
+  button{min-height:40px;padding:8px 12px}
+  #tools button{min-width:40px}
+  /* 16px+ stops iOS from zooming in when the editor is focused */
+  #ed{padding:16px max(16px,env(safe-area-inset-right)) 16px max(16px,env(safe-area-inset-left));font-size:16px}
+  #ed.prose{font-size:17px}
+  #pv{padding:16px;border-left:0;font-size:16px}
+  .status{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+  #s-pos{display:none}
+}
