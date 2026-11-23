@@ -1,0 +1,53 @@
+primary_name: "Ramiro Caso"
+secondary_name: ""
+navbar_name: "Ramiro Caso"
+
+positions:
+- name: Adjunct Researcher (IIF/SADAF/CONICET)
+  logo: /assets/images/badges/Conicet.png  # Logo is optional
+- name: TA Coordinator (Philosophy Department, FFyL UBA)
+  logo: /assets/images/badges/FiloUBA.png  # Logo is optional
+
+
+email: "ramirocaso@uba.ar"
+cv_link: /assets/files/cv.pdf
+gscholar: kf8znd8AAAAJ # This is an example, replace it with your own Google Scholar ID
+github: r-caso
+orcid: 0000-0002-1421-2739
+
+short_bio_text_justify: false
+short_bio: >-
+  <p>
+    I have a PhD in Philosophy from the University of Buenos Aires. I specialize in philosophy of language. I'm a Researcher at the National Scientific and Technical Research Council (CONICET) and TA Coordinator at the Department of Philosophy of the University of Buenos Aires (Faculty of Arts and Science). 
+  </p>
+  <p>
+    I am also part of the <a href="https://talk-group.org/" target="_blank">Theory and Analysis of Language (TALK) Group</a>. Currently I'm working on deontic and epistemic modals. I am interested in formal semantics and dynamic semantic theories of meaning. Recently, I've done work on truth relativism, and I am still dealing with some remnants of that discussion. Other areas that interest me are the semantics of aesthetic predicates, and not-at-issue content.
+  </p>
+  <p>
+    Also, I am working on Large Language Model and Agentic AI evaluation. I currently coordinate the Language Model and Agentic AI Evaluation Group <a href="https://referentia-group.github.io/" target="_blank">Referentia</a> at the IIF/SADAF/CONICET, together with Mauro Santelli and Joaquín Toranzo Calderón. I spend my Fridays with the <a href="https://www.ba-logic.com/" target="_blank">BA Logic Group</a>.
+  </p>
+
+portrait_url: /assets/images/photos/ramirocaso.jpg
+portrait_caption: >-
+  Profile picture of Ramiro Caso
+
+experience:
+- name: IIF/SADAF/CONICET
+  logo: /assets/images/badges/Conicet.png
+  position: Adjunct Researcher
+  date: Dec. 2025 - ongoing
+- name: Departamento de Filosofía (FFyL, UBA)
+  logo: /assets/images/badges/FiloUBA.png
+  position: TA Coordinator
+  date: Dec. 2016 - ongoing
+
+education:
+- name: University of Buenos Aires
+  logo: /assets/images/badges/UBA.png
+  position: >- 
+    PhD in Philosophy 
+  date: March 2015
+- name: University of Buenos Aires
+  logo: /assets/images/badges/UBA.png
+  position: BA in Philosophy
+  date: March 2009

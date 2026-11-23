@@ -1,0 +1,79 @@
+---
+layout: default
+title: Teaching
+navbar_title: Teaching
+---
+
+{% assign all_courses = site.courses | sort: "date" | reverse %}
+
+{% comment %} Preferred ordering of academic levels {% endcomment %}
+{% assign standard_levels = "Graduate,Undergraduate,Posgrado,Grado" | split: "," %}
+{% assign actual_levels = all_courses | map: "level" | compact | uniq %}
+
+{% comment %} Build ordered list: standard levels first if present, then any other custom levels {% endcomment %}
+{% assign ordered_levels = "" | split: "" %}
+{% for lvl in standard_levels %}
+  {% if actual_levels contains lvl %}
+    {% assign ordered_levels = ordered_levels | push: lvl %}
+  {% endif %}
+{% endfor %}
+{% for lvl in actual_levels %}
+  {% unless ordered_levels contains lvl %}
+    {% assign ordered_levels = ordered_levels | push: lvl %}
+  {% endunless %}
+{% endfor %}
+
+{% assign unassigned_courses = "" | split: "" %}
+{% for c in all_courses %}
+  {% unless c.level and c.level != "" %}
+    {% assign unassigned_courses = unassigned_courses | push: c %}
+  {% endunless %}
+{% endfor %}
+
+<div class="row">
+    <div class="col-12 col-lg-10" style="min-height: 60vh; padding-bottom: 25vh;">
+        {% if all_courses.size == 0 %}
+            <div class="bg-white shadow-sm rounded-xl p-4 my-4 text-center text-muted">
+                <i class="fas fa-chalkboard-teacher fa-2x mb-3 text-secondary"></i>
+                <p class="mb-0">No courses listed yet. Add course files in <code>_courses/</code> to display them here.</p>
+            </div>
+        {% endif %}
+
+        {% for lvl in ordered_levels %}
+        {% assign group_courses = all_courses | where: "level", lvl %}
+        {% if group_courses.size > 0 %}
+        <h2 class="pt-4" id="{{ lvl | slugify }}">{{ lvl }} Courses</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+            {% for item in group_courses %}
+                {% include widgets/teaching_card.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% if unassigned_courses.size > 0 %}
+        <h2 class="pt-4" id="other-courses">Other Courses</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+            {% for item in unassigned_courses %}
+                {% include widgets/teaching_card.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    {% if all_courses.size > 0 %}
+    <div class="col-2 d-none d-lg-block">
+        <div id="navbar-level" class="nav nav-pills flex-column sticky-top" style="top: 80px">
+            {% for lvl in ordered_levels %}
+            {% assign group_courses = all_courses | where: "level", lvl %}
+            {% if group_courses.size > 0 %}
+            <a class="nav-link d-block" href="#{{ lvl | slugify }}">{{ lvl }}</a>
+            {% endif %}
+            {% endfor %}
+            {% if unassigned_courses.size > 0 %}
+            <a class="nav-link d-block" href="#other-courses">Other</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>

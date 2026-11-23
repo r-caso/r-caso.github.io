@@ -1,7 +1,13 @@
+# Ramiro Caso — Personal Academic Website
 
-# A philosopher's personal web page
+Source code for my personal academic website, hosted at [https://r-caso.github.io](https://r-caso.github.io).
 
-My name is Ramiro Caso, and this repository holds my personal web page.
+## Local Preview
 
-The page is based on the Solid State design by HTML5 UP - html5up.net | @ajlkn,
-with really minor tweaks I made.
+```bash
+bundle exec jekyll serve
+```
+
+## Credits & License
+
+Built with the [academic-homepage](https://github.com/luost26/academic-homepage) Jekyll template by Shitong Luo, used under the [MIT License](/LICENSE).
